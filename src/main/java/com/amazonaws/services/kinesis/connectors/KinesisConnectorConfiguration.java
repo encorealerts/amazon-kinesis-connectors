@@ -64,6 +64,11 @@ public class KinesisConnectorConfiguration {
     public static final String PROP_BATCH_RECORDS_IN_PUT_REQUEST = "batchRecordsInPutRequest";
     public static final String PROP_S3_ENDPOINT = "s3Endpoint";
     public static final String PROP_S3_BUCKET = "s3Bucket";
+    public static final String PROP_SIDEKIQ_NAMESPACE = "sidekiqNamespace";
+    public static final String PROP_SIDEKIQ_QUEUE_NAME = "sidekiqQueueName";
+    public static final String PROP_SIDEKIQ_TASK_NAME = "sidekiqTaskName";
+    public static final String PROP_SIDEKIQ_TASK_RETRY = "sidekiqTaskRetry";
+    public static final String PROP_SIDEKIQ_REDIS_ENDPOINT = "sidekiqRedisEndpoint";
     public static final String PROP_REDSHIFT_ENDPOINT = "redshiftEndpoint";
     public static final String PROP_REDSHIFT_USERNAME = "redshiftUsername";
     public static final String PROP_REDSHIFT_PASSWORD = "redshiftPassword";
@@ -137,6 +142,12 @@ public class KinesisConnectorConfiguration {
     public static final String DEFAULT_S3_ENDPOINT = "https://s3.amazonaws.com";
     public static final String DEFAULT_S3_BUCKET = "kinesis-bucket";
 
+    public static final String DEFAULT_SIDEKIQ_NAMESPACE = "namespace";
+    public static final String DEFAULT_SIDEKIQ_QUEUE_NAME = "default";
+    public static final String DEFAULT_SIDEKIQ_TASK_NAME = "KinesisToSidekiq";
+    public static final String DEFAULT_SIDEKIQ_TASK_RETRY = "true";
+    public static final String DEFAULT_SIDEKIQ_REDIS_ENDPOINT = "localhost";
+
     // Default Amazon Redshift Constants
     public static final String DEFAULT_REDSHIFT_ENDPOINT = "https://redshift.us-east-1.amazonaws.com";
     public static final String DEFAULT_REDSHIFT_USERNAME = null;
@@ -206,6 +217,11 @@ public class KinesisConnectorConfiguration {
     public final String REGION_NAME;
     public final String S3_ENDPOINT;
     public final String S3_BUCKET;
+    public final String SIDEKIQ_NAMESPACE;
+    public final String SIDEKIQ_QUEUE_NAME;
+    public final String SIDEKIQ_TASK_NAME;
+    public final String SIDEKIQ_TASK_RETRY;
+    public final String SIDEKIQ_REDIS_ENDPOINT;
     public final String REDSHIFT_ENDPOINT;
     public final String REDSHIFT_USERNAME;
     public final String REDSHIFT_PASSWORD;
@@ -279,6 +295,12 @@ public class KinesisConnectorConfiguration {
         // Amazon S3 configuration
         S3_ENDPOINT = properties.getProperty(PROP_S3_ENDPOINT, DEFAULT_S3_ENDPOINT);
         S3_BUCKET = properties.getProperty(PROP_S3_BUCKET, DEFAULT_S3_BUCKET);
+
+        SIDEKIQ_NAMESPACE = properties.getProperty(PROP_SIDEKIQ_NAMESPACE, DEFAULT_SIDEKIQ_NAMESPACE);
+        SIDEKIQ_QUEUE_NAME = properties.getProperty(PROP_SIDEKIQ_QUEUE_NAME, DEFAULT_SIDEKIQ_QUEUE_NAME);
+        SIDEKIQ_TASK_NAME = properties.getProperty(PROP_SIDEKIQ_TASK_NAME, DEFAULT_SIDEKIQ_TASK_NAME);
+        SIDEKIQ_TASK_RETRY = properties.getProperty(PROP_SIDEKIQ_TASK_RETRY, DEFAULT_SIDEKIQ_TASK_RETRY);
+        SIDEKIQ_REDIS_ENDPOINT = properties.getProperty(PROP_SIDEKIQ_REDIS_ENDPOINT, DEFAULT_SIDEKIQ_REDIS_ENDPOINT);
 
         // Amazon Redshift configuration
         REDSHIFT_ENDPOINT = properties.getProperty(PROP_REDSHIFT_ENDPOINT, DEFAULT_REDSHIFT_ENDPOINT);

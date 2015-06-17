@@ -1,2 +1,7 @@
-target/
 AwsCredentials.properties
+target/
+src/external/
+src/KinesisClientLibrary/
+src/aws-java*/
+src/main/build/*
+**/.DS_Store
